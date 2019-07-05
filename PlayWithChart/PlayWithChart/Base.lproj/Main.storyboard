@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8yj-5Z-9Dw">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +12,80 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PlayWithChart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aef-Ua-jDM">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OvV-iv-cfF">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="410"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JUG-rp-PIB" customClass="BarChartView" customModule="Charts">
+                                                <rect key="frame" x="0.0" y="30" width="375" height="350"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="350" id="Wr1-WC-XHg"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="350" id="mdX-Gu-bwJ"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="JUG-rp-PIB" firstAttribute="leading" secondItem="OvV-iv-cfF" secondAttribute="leading" id="5ih-bO-863"/>
+                                            <constraint firstAttribute="bottom" secondItem="JUG-rp-PIB" secondAttribute="bottom" constant="30" id="HNl-Eo-iIB"/>
+                                            <constraint firstItem="JUG-rp-PIB" firstAttribute="top" secondItem="OvV-iv-cfF" secondAttribute="top" constant="30" id="KOJ-FU-DWL"/>
+                                            <constraint firstAttribute="trailing" secondItem="JUG-rp-PIB" secondAttribute="trailing" id="yDL-kd-q09"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="OvV-iv-cfF" firstAttribute="width" secondItem="aef-Ua-jDM" secondAttribute="width" id="669-Nd-cxV"/>
+                                    <constraint firstAttribute="width" constant="375" id="6Hr-Bw-ota"/>
+                                    <constraint firstItem="OvV-iv-cfF" firstAttribute="top" secondItem="aef-Ua-jDM" secondAttribute="top" id="PvJ-wO-Uut"/>
+                                    <constraint firstItem="OvV-iv-cfF" firstAttribute="leading" secondItem="aef-Ua-jDM" secondAttribute="leading" id="YBL-dD-his"/>
+                                    <constraint firstAttribute="trailing" secondItem="OvV-iv-cfF" secondAttribute="trailing" id="nW7-gc-rO4"/>
+                                    <constraint firstAttribute="bottom" secondItem="OvV-iv-cfF" secondAttribute="bottom" id="ygY-BZ-5vD"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aef-Ua-jDM" secondAttribute="bottom" id="7H1-GJ-NIS"/>
+                            <constraint firstItem="aef-Ua-jDM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="IBn-Sf-6I9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aef-Ua-jDM" secondAttribute="trailing" id="LBR-px-xgp"/>
+                            <constraint firstItem="aef-Ua-jDM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nvv-Uy-xtc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Jm5-oo-y6X"/>
+                    <connections>
+                        <outlet property="barCharts" destination="JUG-rp-PIB" id="3Sp-Yu-KBF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1071.2" y="133.5832083958021"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EfU-DQ-NOt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8yj-5Z-9Dw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AuT-ha-uf6">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="OFN-IX-wNK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WfK-Y0-tS8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>
